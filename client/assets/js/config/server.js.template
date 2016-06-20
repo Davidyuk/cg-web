@@ -1,0 +1,7 @@
+module.exports = {
+  hostname: location.hostname,
+  port: '80',
+  api: {
+    path: 'api/web/'
+  }
+};
