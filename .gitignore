@@ -7,3 +7,5 @@ build
 .idea
 
 client/assets/js/config/server.js
+client/assets/images/generated
+temp
