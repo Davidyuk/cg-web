@@ -1,2 +1,85 @@
-@import "settings";
-@import "foundation";
+@import "semantic-ui";
+@import "CSS:openlayers3/build/ol";
+
+@import "utils/resize-sprite";
+@import "utils/variables";
+
+$menu-icons: sprite-map(
+  'menu-icons/*.png',
+  $spacing: 5
+);
+
+$sidebar-width: 190px;
+
+.ui.vertical.menu {
+  background-color: #E7E7E6;
+  width: $sidebar-width;
+
+  a.item {
+    [class^="icon"] {
+      filter: grayscale(1);
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    @each $icon in sprite_names($menu-icons) {
+      .icon-#{$icon} {
+        background: sprite($menu-icons, #{$icon}) no-repeat;
+        @include resize-sprite($menu-icons, $icon, 35);
+      }
+    }
+    &:hover, &.active {
+      [class^="icon"] {
+        filter: grayscale(0);
+      }
+    }
+  }
+
+  @media only screen and (min-height: 600px) {
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+}
+
+.pusher {
+  &, .full.height, main {
+    height: 1px;
+    min-height: 100%;
+  }
+  .full.height {
+    display: flex;
+    flex-direction: row;
+    .toc {
+      flex: 0 0 auto;
+      width: $sidebar-width;
+      .ui.top.fixed.menu {
+        width: inherit;
+        height: 100%;
+      }
+    }
+    .main {
+      flex: 1 1 auto;
+      overflow: auto;
+      position: relative;
+    }
+    @media only screen and (max-width: $tabletBreakpoint) {
+      .toc {
+        display: none;
+      }
+      .main {
+        margin-top: 40px;
+        .ui.top.fixed.menu > * {
+          float: left;
+        }
+      }
+    }
+    @media only screen and (min-width: $tabletBreakpoint) {
+      .main .ui.top.fixed.menu {
+        display: none;
+      }
+    }
+  }
+}

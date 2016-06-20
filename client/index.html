@@ -1,24 +1,49 @@
-<!doctype html>
-<html lang="en" ng-app="application">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation for Apps</title>
-    <link href="./assets/css/app.css" rel="stylesheet" type="text/css">
-    <script src="./assets/js/foundation.js"></script>
-    <script src="./assets/js/templates.js"></script>
-    <script src="./assets/js/routes.js"></script>
-    <script src="./assets/js/app.js"></script>
-  </head>
-  <body>
-    <div class="grid-frame vertical">
-      <div class="grid-content shrink" style="padding: 0;">
-        <ul class="primary condense menu-bar">
-          <li><a><strong>Foundation for Apps</strong></a></li>
-        </ul>
-      </div>
-      <div ui-view class="grid-content">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Кампус Гид</title>
+  <link rel="stylesheet" href="/assets/css/app.css" type="text/css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+<body>
+
+<div class="ui vertical sidebar menu">
+  <a href="/"><img class="ui image" src="/assets/images/logo.png"></a>
+  <div class="bottom">
+  </div>
+</div>
+
+<div class="pusher">
+  <div class="full height">
+    <div class="toc">
+      <div class="ui vertical sticky menu fixed top">
+        <a href="/"><img class="ui image" src="/assets/images/logo.png"></a>
+        <div class="bottom">
+        </div>
       </div>
     </div>
-  </body>
+
+    <div class="main">
+      <div class="ui top fixed menu">
+        <a class="sidebar-toggle item">
+          <i class="sidebar icon"></i>
+        </a>
+      </div>
+
+      <main>
+        <div class="ui active inverted dimmer">
+          <div class="ui loader"></div>
+        </div>
+      </main>
+
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/app.js"></script>
+</body>
 </html>
