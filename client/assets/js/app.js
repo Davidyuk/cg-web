@@ -11,5 +11,8 @@ $(function(){
   };
 
   new AppView(options);
+
+  require('./modules/404')(options);
+
   Backbone.history.start({ pushState: true });
 });
