@@ -14,5 +14,7 @@ $(function(){
 
   require('./modules/404')(options);
 
+  require('./modules/booklet')(options);
+
   Backbone.history.start({ pushState: true });
 });

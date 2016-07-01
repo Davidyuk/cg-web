@@ -1,0 +1,17 @@
+<div class="ui padded four column grid">
+
+  <div class="<%= isDetail ? '' : 'four wide' %> computer <%= isDetail ? 'only' : 'sixteen wide' %> column">
+    <h3>Содержание</h3>
+    <div class="ui selection divided list">
+      <% objects.forEach(function(object) { %>
+      <a class="item <%= object.active ? 'active' : '' %>" href="<%= object.url %>"><%= object.name %></a>
+      <% }) %>
+    </div>
+  </div>
+
+  <object class="twelve wide computer <%= isDetail ? 'sixteen wide' : 'only' %> column" data="<%= active.file %>#toolbar=0&navpanes=0" type="application/pdf">
+    Ваш браузер не поддерживает просмотр PDF документов.
+    <a href="<%= active.file %>">Нажмите здесь, чтобы загрузить этот файл</a>.
+  </object>
+
+</div>
