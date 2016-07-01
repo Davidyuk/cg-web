@@ -1,6 +1,7 @@
 var $ = require('jquery'),
   Backbone = require('backbone'),
-  _ = require('underscore');
+  _ = require('underscore'),
+  AppView = require('./views/app');
 
 $(function(){
   var options = {
@@ -9,5 +10,6 @@ $(function(){
     reverse: require('./reverse')
   };
 
+  new AppView(options);
   Backbone.history.start({ pushState: true });
 });
