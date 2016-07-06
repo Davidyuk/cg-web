@@ -1,0 +1,27 @@
+<% if (loadingHead || !scrolledUp) { %>
+<div class="ui active centered inline top loader"></div>
+<% } %>
+
+<div class="ui divided selection list">
+  <% objects.forEach(function(object) { %>
+  <a href="<%= options.reverse('news', object.id) %>" class="item" data-id="<%= object.id %>">
+    <div class="ui tiny image">
+      <img src="<%= options.config.server + object.thumbnail %>">
+    </div>
+    <div class="content">
+      <span class="header"><%= object.title %></span>
+      <div class="extra"><%= object.date %></div>
+    </div>
+  </a>
+  <% }) %>
+</div>
+
+<% if (loadingTail) { %>
+<div class="ui active centered inline bottom loader"></div>
+<% } %>
+
+<% if (loading) { %>
+<div class="ui active inverted dimmer">
+  <div class="ui loader"></div>
+</div>
+<% } %>

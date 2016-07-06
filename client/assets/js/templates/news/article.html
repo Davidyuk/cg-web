@@ -1,0 +1,24 @@
+<div class="wrap">
+  <h2><%= object.title %></h2>
+  <% if (object.images && object.images.length) { %>
+  <a>
+    <img class="ui medium left floated image" src="<%= options.config.server + object.images[0].big %>">
+  </a>
+  <% } %>
+  <%= object.body %>
+  <span class="text muted"><%= object.date %></span>
+  <% if (object.images && object.images.length > 1) { %>
+  <div class="ui divider"></div>
+  <div class="ui images">
+    <% for (var i = 0; i < object.images.length; i++) { %>
+    <a><img src="<%= options.config.server + object.images[i].small %>"></a>
+    <% } %>
+  </div>
+  <% } %>
+</div>
+
+<% if (loading) { %>
+<div class="ui active inverted dimmer">
+  <div class="ui loader"></div>
+</div>
+<% } %>

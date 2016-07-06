@@ -1,0 +1,51 @@
+@import "utils/variables";
+
+#news {
+  display: flex;
+
+  & > div {
+    height: 100%;
+    overflow: auto;
+    position: relative;
+  }
+
+  #feed {
+    flex: 1 0 40%;
+
+    @media only screen and (min-width: $computerBreakpoint) {
+      max-width: 450px;
+    }
+
+    .list {
+      min-height: 100%;
+      .header {
+        font-weight: normal;
+        color: #4183c4;
+        &:hover {
+          color: #1e70bf;
+        }
+      }
+    }
+
+    .loader {
+      &.top {
+        margin-top: 1rem;
+      }
+      &.bottom {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  #article {
+    flex: 1 1 auto;
+    .wrap {
+      padding: 1rem;
+      max-width: 800px;
+    }
+  }
+
+  .text.muted {
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
