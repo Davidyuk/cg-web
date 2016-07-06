@@ -3,6 +3,7 @@
 
 @import "utils/resize-sprite";
 @import "utils/variables";
+@import "utils/hidden-classes";
 
 $menu-icons: sprite-map(
   'menu-icons/*.png',
