@@ -1,9 +1,22 @@
-#booklet, #booklet object, #booklet .grid {
-  width: 100%;
-  height: 100%;
-}
+@import "utils/variables";
 
-#booklet object {
-  display: block;
-  padding: 0;
+#booklet {
+  display: flex;
+
+  & > * {
+    flex: 1 1 auto;
+    height: 100%;
+  }
+
+  & > div {
+    padding: 1rem;
+    overflow: auto;
+    @media only screen and (min-width: $tabletBreakpoint) {
+      flex: 0 0 auto;
+    }
+  }
+
+  & > object {
+    display: block;
+  }
 }

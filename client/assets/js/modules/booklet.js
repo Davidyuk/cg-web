@@ -20,7 +20,8 @@ module.exports = function(options) {
   });
 
   options.reverse.add('booklet', function(options){
-    return '/booklet' + (options && options.id ? '/' + options.id : '');
+    var id = (typeof options == 'object' ? options.id : options);
+    return '/booklet' + (id ? '/' + id : '');
   });
 
   options.vent.once('route:booklet', function(id) {
@@ -41,7 +42,8 @@ module.exports = function(options) {
       { id: 14, name: 'Полезная информация' }
     ], _.extend({
       parse: true,
-      model: Model
+      model: Model,
+      title: title
     }, options));
     collection.setActive(1);
 
@@ -51,6 +53,8 @@ module.exports = function(options) {
       collection: collection
     }, options));
 
-    options.vent.trigger('route:booklet', id);
+    var a = [].slice.call(arguments);
+    a.unshift('route:booklet');
+    options.vent.trigger.apply(options.vent, a);
   });
 };

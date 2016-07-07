@@ -7,20 +7,14 @@ module.exports = Backbone.View.extend({
   template: template,
 
   initialize: function(options) {
+    this.listenTo(options.vent, 'route:booklet', this.onRoute);
     this.options = options;
-    this.options.vent.on('route:booklet', this.onRoute.bind(this));
   },
 
   onRoute: function(id) {
     this.$el.attr('id', this.id);
-    if (id) this.collection.setActive(id);
-    if (!this.collection.active)
-      return this.options.vent.trigger('route:404');
     this.isDetail = !!id;
-    this.options.vent.trigger('change:title',
-      (id ? this.collection.active.get('name') + ' - ' : '') +
-      this.options.title
-    );
+
     this.render();
     this.options.vent.trigger('menu_mobile:add', {
       title: this.options.title,
@@ -29,11 +23,11 @@ module.exports = Backbone.View.extend({
   },
 
   render: function() {
-    var active = this.collection.getActive();
     this.$el.html(this.template({
       objects: this.collection.toJSON(),
-      active: active ? active.toJSON() : active,
-      isDetail: this.isDetail
+      active: this.collection.getActive().toJSON(),
+      isDetail: this.isDetail,
+      options: this.options
     }));
     return this;
   }
