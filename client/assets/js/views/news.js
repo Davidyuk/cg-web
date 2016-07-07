@@ -23,8 +23,8 @@ module.exports = Backbone.View.extend({
       this.$el.attr('id', this.id);
       this.render();
     }
-    this.feed.el.className = id ? 'mobile hidden tablet hidden' : '';
-    this.article.el.className = id ? '' : 'mobile hidden tablet hidden';
+    this.feed.el.className = id ? 'mobile hidden' : '';
+    this.article.el.className = id ? '' : 'mobile hidden';
     this.options.vent.trigger('menu_mobile:add', {
       title: this.options.title,
       href: id ? this.options.reverse.get('news') : null
