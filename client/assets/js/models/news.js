@@ -14,6 +14,7 @@ module.exports = Backbone.Model.extend({
       'sync': this.onSync,
       'error': this.onError
     });
+    this.listenTo(options.vent, 'route:news', function(id) { this._routeId = id; });
 
     this.options = options;
   },
@@ -40,6 +41,9 @@ module.exports = Backbone.Model.extend({
   onSync: function() {
     this._loaded = true;
     this.options.vent.trigger('news:article:loaded', this);
+    this.options.vent.trigger('change:title',
+      (this._routeId ? this.get('title') + ' - ' : '') + this.options.title
+    );
   },
 
   onError: function() {

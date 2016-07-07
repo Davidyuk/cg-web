@@ -26,7 +26,8 @@ module.exports = function(options) {
 
   options.vent.once('route:news', function(id) {
     var collection = new Collection([], _.extend({
-      model: Model
+      model: Model,
+      title: title
     }, options));
 
     new View(_.extend({
