@@ -34,7 +34,7 @@ module.exports = Backbone.View.extend({
     $('.ui.sidebar').sidebar('attach events', '.sidebar-toggle.item');
 
     $(window).resize(function() {
-      if ($(window).width() > options.config.breakpoints.tablet)
+      if ($(window).width() > options.config.breakpoints.computer)
         $('.ui.sidebar').sidebar('hide');
     });
 
