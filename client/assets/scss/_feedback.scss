@@ -1,0 +1,10 @@
+@import "utils/variables";
+
+#feedback {
+  padding-top: 1rem;
+  @media only screen and (min-width: $computerBreakpoint) {
+    .container.text {
+      margin-left: 1rem !important;
+    }
+  }
+}

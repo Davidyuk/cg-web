@@ -18,6 +18,7 @@ $(function(){
   require('./modules/news')(options);
 
   require('./modules/booklet')(options);
+  require('./modules/feedback')(options);
 
   Backbone.history.start({ pushState: true });
 });

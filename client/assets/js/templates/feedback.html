@@ -1,0 +1,37 @@
+<div class="ui container text">
+  <h1 class="ui header dividing">
+    <i class="send outline icon"></i>
+    <div class="content">
+      Оставить отзыв
+      <div class="sub header"><!--Lorem ipsum dolor sit amet, consectetuer adipiscing elit--></div>
+    </div>
+  </h1>
+  <% if (typeof message != 'undefined') { %>
+  <div class="ui message <%= message.type %>">
+    <p>
+      <%= message.content %>
+    </p>
+  </div>
+  <% } %>
+  <form class="ui form">
+    <div class="field">
+      <label>
+        Ваше имя
+        <input type="text" value="<%= object.username %>">
+      </label>
+    </div>
+    <div class="field">
+      <label>
+        Ваш сотовый телефон
+        <input type="tel" value="<%= object.phone %>">
+      </label>
+    </div>
+    <div class="field">
+      <label>
+        Текст сообщения
+        <textarea><%= object.message %></textarea>
+      </label>
+    </div>
+    <input type="submit" class="ui button" value="Отправить">
+  </form>
+</div>
