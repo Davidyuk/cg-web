@@ -18,6 +18,7 @@
 
     .list {
       min-height: 100%;
+      margin: 0;
       .header {
         font-weight: normal;
         color: #4183c4;
@@ -27,13 +28,9 @@
       }
     }
 
-    .loader {
-      &.top {
-        margin-top: 1rem;
-      }
-      &.bottom {
-        margin-bottom: 1rem;
-      }
+    .loader.inline {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
   }
 
