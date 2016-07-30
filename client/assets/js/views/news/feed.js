@@ -11,6 +11,7 @@ module.exports = Backbone.View.extend({
 
   initialize: function(options) {
     this.listenTo(options.vent, 'route:news', this.onRoute);
+    this.listenTo(options.vent, 'news:render', this.onParentRender);
     this.listenTo(options.vent, 'news:feed:loading', function() { this.render({loading: true}) });
     this.listenTo(options.vent, 'news:feed:loading:head', this.onLoadingHead);
     this.listenTo(options.vent, 'news:feed:loading:tail', function() { this.render({loadingTail: true}) });
@@ -33,6 +34,12 @@ module.exports = Backbone.View.extend({
   onLoadingHead: function() {
     this.scrolledUp = true;
     this.render({loadingHead: true});
+  },
+
+  onParentRender: function() {
+    this.delegateEvents();
+    var el = this.$el.find('.item:first');
+    if (el.length) this.$el.scrollTop(el.position().top);
   },
 
   render: function(options) {

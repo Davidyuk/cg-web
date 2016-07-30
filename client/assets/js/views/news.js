@@ -34,8 +34,8 @@ module.exports = Backbone.View.extend({
   render: function() {
     this.$el.empty();
     this.$el.append(this.feed.el);
-    this.feed.delegateEvents();
     this.$el.append(this.article.el);
+    this.options.vent.trigger('news:render');
     return this;
   }
 });
