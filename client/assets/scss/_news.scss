@@ -19,6 +19,13 @@
     .list {
       min-height: 100%;
       margin: 0;
+      .image img {
+        width: 100px;
+        height: 60px;
+        max-width: none;
+        object-fit: none;
+        object-position: center center;
+      }
       .header {
         font-weight: normal;
         color: #4183c4;

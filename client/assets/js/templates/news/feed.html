@@ -5,7 +5,7 @@
 <div class="ui divided selection list">
   <% objects.forEach(function(object) { %>
   <a href="<%= options.reverse('news', object.id) %>" class="item" data-id="<%= object.id %>">
-    <div class="ui tiny image">
+    <div class="ui image">
       <img src="<%= options.config.server + object.thumbnail %>">
     </div>
     <div class="content">
