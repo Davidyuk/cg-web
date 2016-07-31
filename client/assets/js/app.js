@@ -7,7 +7,8 @@ $(function(){
   var options = {
     vent: _.clone(Backbone.Events),
     config: require('./config'),
-    reverse: require('./reverse')
+    reverse: require('./reverse'),
+    parser: require('./parser')
   };
 
   new AppView(options);

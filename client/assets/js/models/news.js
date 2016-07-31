@@ -20,10 +20,9 @@ module.exports = Backbone.Model.extend({
   },
 
   parse: function(data) {
-    if (data.body) {
-      data.body = data.body.replace(/(\r\n){2,}/g, '</p><p>').replace(/(\r\n)+/g, '<br>');
-      data.body = '<p>' + data.body + '</p>';
-    }
+    if (data.body)
+      data.body = this.options.parser(data.body, {paragraphs: true, linebreaks: true});
+
     return data;
   },
 
