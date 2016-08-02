@@ -1,3 +1,5 @@
+<%= require('../_loader.html')({loading: loading}) %>
+
 <% if (loadingHead || !scrolledUp) { %>
 <div class="ui active centered inline loader"></div>
 <% } %>
@@ -18,10 +20,4 @@
 
 <% if (loadingTail) { %>
 <div class="ui active centered inline loader"></div>
-<% } %>
-
-<% if (loading) { %>
-<div class="ui active inverted dimmer">
-  <div class="ui loader"></div>
-</div>
 <% } %>

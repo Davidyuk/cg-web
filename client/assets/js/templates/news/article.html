@@ -1,3 +1,5 @@
+<%= require('../_loader.html')({loading: loading}) %>
+
 <div class="wrap">
   <h2><%= object.title %></h2>
   <% if (object.images && object.images.length) { %>
@@ -16,9 +18,3 @@
   </div>
   <% } %>
 </div>
-
-<% if (loading) { %>
-<div class="ui active inverted dimmer">
-  <div class="ui loader"></div>
-</div>
-<% } %>
