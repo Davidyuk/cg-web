@@ -1,0 +1,48 @@
+<%= require('../_loader.html')({loading: loading}) %>
+
+<% if (breadcrumbs.length) { %>
+<div class="ui breadcrumb">
+  <% breadcrumbs.forEach(function(object, id) { %>
+  <% if (id == breadcrumbs.length - 1 && object.isOrganization) return; %>
+  <% if (id) { %><div class="divider"> / </div><% } %>
+  <% if (id != breadcrumbs.length - 1) { %>
+  <a href="<%= options.reverse('catalog', object.id) %>" class="section" title="<%= object.name %>"><%= object.name %></a>
+  <% } else { %>
+  <div class="active section" title="<%= object.name %>"><%= object.name %></div>
+  <% } %>
+  <% }) %>
+</div>
+<% } %>
+
+<% if (current.isOrganization) { %>
+<table class="ui very basic table">
+  <tr><td class="collapsing">
+    <img class="ui small image" src="<%= current.logoStandardUrl %>">
+  </td><td>
+    <h1><%= current.name %></h1>
+    <%= current.description %>
+    <%= require('./_fields.html')({ object: current }) %>
+  </td></tr>
+</table>
+<% } %>
+
+<%= require('./_categories-list.html')({categories: categories, options: options}) %>
+
+<% if (objects.length) { %>
+<% if (categories.length) { %><div class="ui divider"></div><% } %>
+<% if (current.isOrganization) { %><h2>Филиалы:</h2><% } %>
+<div class="ui large divided list">
+  <% objects.forEach(function(object) { %>
+  <div class="item">
+    <i class="icon"><img src="<%= object.logoThumbnailUrl %>"></i>
+    <div class="middle aligned content">
+      <div class="header"><%= object.name %></div>
+      <div class="description">
+        <%= object.description %>
+        <%= require('./_fields.html')({ object: object }) %>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+</div>
+<% } %>

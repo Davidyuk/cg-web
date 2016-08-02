@@ -1,0 +1,41 @@
+<div class="ui divided list">
+  <% if (object.phone) { %>
+  <a class="item" href="<%= object.phone.url %>">
+    <i class="phone icon"></i>
+    <%= object.phone.name %>
+  </a>
+  <% } %>
+
+  <% if (object.site) { %>
+  <a class="item" href="<%= object.site.url %>" target="_blank">
+    <i class="world icon"></i>
+    <%= object.site.name %>
+  </a>
+  <% } %>
+
+  <% if (object.schedule && object.schedule.length) { %>
+  <a class="item schedule" href="#">
+    <i class="wait icon"></i>
+    Режим работы
+  </a>
+  <div class="item" style="display: none">
+    <table class="ui very basic celled unstackable table">
+      <tbody>
+      <% object.schedule.forEach(function(object) { %>
+      <tr>
+        <td><%= object.day %></td>
+        <td><%= object.startAt %> — <%= object.endAt %></td>
+      </tr>
+      <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <% } %>
+
+  <% if (object.node) { %>
+  <a class="item" href="<%= object.node.url %>">
+    <i class="marker icon"></i>
+    <%= object.node.name %>
+  </a>
+  <% } %>
+</div>

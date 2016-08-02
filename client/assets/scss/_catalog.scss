@@ -1,0 +1,26 @@
+#catalog {
+  display: flex;
+  flex-direction: column;
+
+  .breadcrumb {
+    display: flex;
+    line-height: normal;  // override `1` from .ui.breadcrumb
+    .section {
+      overflow-x: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .list i.icon > img {
+    width: 50px;
+    height: 50px;
+  }
+
+  #category {
+    flex: 1 1 auto;
+    position: relative;
+    overflow: auto;
+    padding: 1rem;
+  }
+}

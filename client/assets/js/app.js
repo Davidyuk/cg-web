@@ -15,6 +15,7 @@ $(function(){
 
   require('./modules/404')(options);
 
+  require('./modules/catalog')(options);
   require('./modules/map')(options);
   require('./modules/news')(options);
 

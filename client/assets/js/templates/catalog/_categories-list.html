@@ -1,0 +1,12 @@
+<% if (categories.length) { %>
+<div class="ui large selection divided list">
+  <% categories.forEach(function(object) { %>
+  <a class="item" href="<%= options.reverse('catalog', object.id) %>">
+    <i class="icon"><img src="<%= object.logoThumbnailUrl %>"></i>
+    <div class="middle aligned content">
+      <div class="header"><%= object.name %></div>
+    </div>
+  </a>
+  <% }) %>
+</div>
+<% } %>
