@@ -30,6 +30,7 @@ module.exports = Backbone.Model.extend({
 
     var title = this.get('current') ? this.get('current').name : '';
     title = title == this.options.title ? '' : title;
+    title = this.get('query') || title;
     this.options.vent.trigger('change:title',
       (title ? title + ' - ' : '') + this.options.title);
   },
@@ -117,6 +118,7 @@ module.exports = Backbone.Model.extend({
     options.url = this.api.replace('{api}', this.options.config.server.api);
     options.data = options.data || {};
     if (model.id) _.extend(options.data, {category: model.id});
+    if (model.get('query')) _.extend(options.data, {query: model.get('query')});
     return Backbone.sync(method, model, options);
   }
 });

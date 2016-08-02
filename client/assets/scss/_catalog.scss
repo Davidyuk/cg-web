@@ -19,11 +19,16 @@
     height: 50px;
   }
 
+  #search {
+    flex: 0 0 auto;
+    padding: 1em;
+  }
+
   #category {
     flex: 1 1 auto;
     position: relative;
     overflow: auto;
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
 
     @media only screen and (min-width: $tabletBreakpoint) {
       &.root {

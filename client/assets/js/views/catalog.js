@@ -1,6 +1,7 @@
 var Backbone = require('backbone'),
   _ = require('underscore'),
-  CategoryView = require('./catalog/category');
+  CategoryView = require('./catalog/category'),
+  SearchView = require('./catalog/search');
 
 
 module.exports = Backbone.View.extend({
@@ -10,6 +11,7 @@ module.exports = Backbone.View.extend({
     var opt = _.clone(options);
     delete opt.el;
     this.category = new CategoryView(opt);
+    this.search = new SearchView(opt);
 
     this.listenTo(options.vent, 'route:catalog', this.onRoute);
 
@@ -29,6 +31,8 @@ module.exports = Backbone.View.extend({
 
   render: function() {
     this.$el.empty();
+    this.$el.append(this.search.el);
+    this.search.delegateEvents();
     this.$el.append(this.category.el);
     this.category.delegateEvents();
     return this;

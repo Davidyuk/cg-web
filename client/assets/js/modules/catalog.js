@@ -16,7 +16,7 @@ module.exports = function(options) {
   });
 
   options.vent.trigger('router:add', {
-    route: 'catalog(/:id)',
+    route: 'catalog(/:id)(/:query)',
     name: 'catalog'
   });
 
@@ -24,6 +24,7 @@ module.exports = function(options) {
     var suffix = '';
     var id = typeof options == 'object' ? options.id : options;
     if (id) suffix += '/' + id;
+    else suffix += options && options.search ? '/search/' + options.search : '';
     return '/catalog' + suffix;
   });
 

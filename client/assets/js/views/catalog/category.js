@@ -44,7 +44,8 @@ module.exports = Backbone.View.extend({
           current: {},
           categories: [],
           objects: [],
-          options: this.options
+          options: this.options,
+          query: ''
         },
         this.model ? this.model.toJSON() : {},
         options

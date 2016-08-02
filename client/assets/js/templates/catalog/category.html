@@ -1,5 +1,9 @@
 <%= require('../_loader.html')({loading: loading}) %>
 
+<% if (query && !loading && !categories.length && !objects.length) { %>
+По запросу <b><%= query %></b> ничего не найдено.
+<% } %>
+
 <% if (breadcrumbs.length) { %>
 <div class="ui breadcrumb">
   <% breadcrumbs.forEach(function(object, id) { %>
