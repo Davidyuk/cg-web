@@ -1,0 +1,14 @@
+<%= require('../_loader.html')({loading: loading}) %>
+
+<div class="root mobile hidden">
+  <% categories.forEach(function(object) { %>
+  <a href="<%= options.reverse('catalog', object.id) %>">
+    <img src="<%= object.logoThumbnailUrl %>"><br>
+    <%= object.name %>
+  </a>
+  <% }) %>
+</div>
+
+<div class="mobile only">
+  <%= require('./_categories-list.html')({categories: categories, options: options}) %>
+</div>

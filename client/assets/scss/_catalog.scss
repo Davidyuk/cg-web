@@ -1,3 +1,5 @@
+@import "utils/variables";
+
 #catalog {
   display: flex;
   flex-direction: column;
@@ -22,5 +24,36 @@
     position: relative;
     overflow: auto;
     padding: 1rem;
+
+    @media only screen and (min-width: $tabletBreakpoint) {
+      &.root {
+        display: flex;
+
+        & > .root {
+          margin: auto;
+          display: flex;
+          align-items: stretch;
+          justify-content: center;
+          flex-wrap: wrap;
+
+          $padding: 2em;
+          max-width: calc((100px + #{$padding} * 4) * 4);
+
+          a {
+            flex: 0 0 calc(100px + #{$padding} * 4);
+            display: block;
+            text-align: center;
+            padding: $padding 0;
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.87);
+            &:hover {
+              background: rgba(0, 0, 0, 0.03);
+            }
+          }
+        }
+      }
+    }
   }
 }

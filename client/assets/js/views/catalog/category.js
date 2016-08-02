@@ -1,11 +1,12 @@
 var $ = require('jquery'),
   Backbone = require('backbone'),
   _ = require('underscore'),
-  template = require('../../templates/catalog/category.html');
+  templateBase = require('../../templates/catalog/category.html'),
+  templateRoot = require('../../templates/catalog/category-root.html');
 
 
 module.exports = Backbone.View.extend({
-  template: template,
+  template: templateBase,
   id: 'category',
 
   initialize: function(options) {
@@ -21,6 +22,9 @@ module.exports = Backbone.View.extend({
 
   onLoaded: function(model) {
     this.model = model;
+    this.template = model.id == 1 ? templateRoot : templateBase;
+    if (model.id == 1) this.$el.addClass('root');
+    else this.$el.removeClass('root');
     this.render();
   },
 
