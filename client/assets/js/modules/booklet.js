@@ -48,7 +48,7 @@ module.exports = function(options) {
     collection.setActive(1);
 
     new View(_.extend({
-      el: $('main')[0],
+      el: $(options.selector.main)[0],
       title: title,
       collection: collection
     }, options));

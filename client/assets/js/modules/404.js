@@ -9,6 +9,6 @@ module.exports = function(options) {
   });
 
   options.vent.on('route:404', function() {
-    $('main').attr('id', 'e404').html(template());
+    $(options.selector.main).attr('id', 'e404').html(template());
   });
 };

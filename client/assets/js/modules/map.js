@@ -66,7 +66,7 @@ module.exports = function(options) {
     var cb = function(){
       if (++p.executed == p.length) {
         new View(_.extend({
-          el: $('main')[0],
+          el: $(options.selector.main)[0],
           model: model
         }, opt));
 

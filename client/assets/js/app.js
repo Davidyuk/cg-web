@@ -10,6 +10,7 @@ $(function(){
     reverse: require('./reverse'),
     parser: require('./parser'),
     selector: {
+      main: 'main',
       menu: '.ui.vertical.menu',
       sidebar: '.ui.vertical.sidebar.menu',
       sidebarToggleButton: '.sidebar-toggle.item',

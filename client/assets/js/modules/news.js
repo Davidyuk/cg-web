@@ -31,7 +31,7 @@ module.exports = function(options) {
     }, options));
 
     new View(_.extend({
-      el: $('main')[0],
+      el: $(options.selector.main)[0],
       title: title,
       collection: collection
     }, options));

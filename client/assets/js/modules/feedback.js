@@ -20,7 +20,7 @@ module.exports = function(options) {
 
   options.vent.once('route:feedback', function(id) {
     new View(_.extend({
-      el: $('main')[0],
+      el: $(options.selector.main)[0],
       title: title,
       model: new Model([], options)
     }, options));
