@@ -16,10 +16,6 @@ module.exports = Backbone.View.extend({
     this.isDetail = !!id;
 
     this.render();
-    this.options.vent.trigger('menu_mobile:add', {
-      title: this.options.title,
-      href: id ? this.options.reverse.get('booklet') : null
-    });
   },
 
   render: function() {

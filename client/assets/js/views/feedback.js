@@ -22,9 +22,6 @@ module.exports = Backbone.View.extend({
     this.options.vent.trigger('change:title',
       this.options.title
     );
-    this.options.vent.trigger('menu_mobile:add', {
-      title: this.options.title
-    });
   },
 
   onInvalid: function(model, error) {

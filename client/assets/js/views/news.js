@@ -25,10 +25,6 @@ module.exports = Backbone.View.extend({
     }
     this.feed.el.className = id ? 'mobile hidden' : '';
     this.article.el.className = id ? '' : 'mobile hidden';
-    this.options.vent.trigger('menu_mobile:add', {
-      title: this.options.title,
-      href: id ? this.options.reverse.get('news') : null
-    });
   },
 
   render: function() {

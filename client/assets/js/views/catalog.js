@@ -23,10 +23,6 @@ module.exports = Backbone.View.extend({
       this.$el.attr('id', this.id);
       this.render();
     }
-    this.options.vent.trigger('menu_mobile:add', {
-      title: this.options.title,
-      href: params ? this.options.reverse('catalog') : null
-    });
   },
 
   render: function() {

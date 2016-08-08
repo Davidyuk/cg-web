@@ -12,7 +12,8 @@ $(function(){
     selector: {
       menu: '.ui.vertical.menu',
       sidebar: '.ui.vertical.sidebar.menu',
-      sidebarToggleButton: '.sidebar-toggle.item'
+      sidebarToggleButton: '.sidebar-toggle.item',
+      mobileMenu: '.main .ui.top.fixed.menu'
     }
   };
 

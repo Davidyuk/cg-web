@@ -16,8 +16,6 @@ module.exports = Backbone.View.extend({
     this.vent = options.vent;
     this.vent.on({
       'change:title': this.setTitle,
-      'menu_mobile:add': this.addMenuFixedItem,
-      'menu_mobile:clean': this.clearMenuFixed,
       'router:add': this.addRoute
     });
 
@@ -39,9 +37,6 @@ module.exports = Backbone.View.extend({
     var Router = Backbone.Router.extend({});
     this.router = new Router;
     this.router.on('all', function() {
-      if (arguments[0] != 'route') {
-        this.vent.trigger('menu_mobile:clean');
-      }
       this.vent.trigger.apply(this.vent, arguments);
     }.bind(this));
   },
@@ -61,16 +56,5 @@ module.exports = Backbone.View.extend({
 
   setTitle: function(title) {
     document.title = title + ' - Кампус Гид';
-  },
-
-  addMenuFixedItem: function(opt) {
-    var $item = $(opt.href ? '<a href="' + opt.href + '"></a>' : '<span></span>');
-    $item.addClass('item').text(opt.title);
-    if (opt.icon) $item.prepend($('<i class="icon ' + opt.icon + '"></i>'));
-    $('.main .ui.top.fixed.menu').append($item);
-  },
-
-  clearMenuFixed: function() {
-    $('.main .ui.top.fixed.menu .item').not('.sidebar-toggle').remove();
   }
 });
