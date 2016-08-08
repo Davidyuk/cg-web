@@ -1,0 +1,16 @@
+<a href="/"><img class="ui image" src="/assets/images/logo.png"></a>
+<% items.forEach(function(item) { %>
+<% if (item.type == 'bottom') return;%>
+<a class="item <%= item.active ? 'active' : '' %>" href="<%= item.href %>">
+  <% if (item.icon) { %>
+  <span class="icon-<%= item.icon %>"></span>
+  <% } %>
+  <%= item.title %>
+</a>
+<% }) %>
+<div class="bottom">
+  <% items.forEach(function(item) { %>
+  <% if (item.type != 'bottom') return;%>
+  <a class="item <%= item.active ? 'active' : '' %>" href="<%= item.href %>"><%= item.title %></a>
+  <% }) %>
+</div>

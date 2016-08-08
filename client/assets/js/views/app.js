@@ -16,7 +16,6 @@ module.exports = Backbone.View.extend({
     this.vent = options.vent;
     this.vent.on({
       'change:title': this.setTitle,
-      'menu:add': this.addMenuItem,
       'menu_mobile:add': this.addMenuFixedItem,
       'menu_mobile:clean': this.clearMenuFixed,
       'router:add': this.addRoute
@@ -31,13 +30,6 @@ module.exports = Backbone.View.extend({
     require('semantic');
     delete window.jQuery;
 
-    $('.ui.sidebar').sidebar('attach events', '.sidebar-toggle.item');
-
-    $(window).resize(function() {
-      if ($(window).width() > options.config.breakpoints.computer)
-        $('.ui.sidebar').sidebar('hide');
-    });
-
     $(document).on('click', 'a[href^="/"]', this.onLinkClick);
 
     this.initializeRouter();
@@ -49,7 +41,6 @@ module.exports = Backbone.View.extend({
     this.router.on('all', function() {
       if (arguments[0] != 'route') {
         this.vent.trigger('menu_mobile:clean');
-        this.updateLinkActive();
       }
       this.vent.trigger.apply(this.vent, arguments);
     }.bind(this));
@@ -60,8 +51,6 @@ module.exports = Backbone.View.extend({
   },
 
   onLinkClick: function(event) {
-    $('.ui.sidebar').sidebar('hide');
-
     var href = $(event.currentTarget).attr('href');
 
     if (!event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
@@ -70,31 +59,8 @@ module.exports = Backbone.View.extend({
     }
   },
 
-  updateLinkActive: function() {
-    var $menu = $('.ui.vertical.menu');
-    $menu.find('a.active').removeClass('active');
-    var s = location.pathname;
-    $menu.find('a[href^="/"]').each(function(_, el){
-      var $el = $(el);
-      var path = $el.attr('href');
-      if (path.length > 1 && !s.lastIndexOf(path, 0))
-        $el.addClass('active');
-    });
-  },
-
   setTitle: function(title) {
     document.title = title + ' - Кампус Гид';
-  },
-
-  addMenuItem: function(opt) {
-    opt.type = (opt.type == 'bottom') ? 'bottom' : 'top';
-    var $item = $('<a class="item" href="' + opt.href + '">' + opt.title + '</a>');
-    if (opt.icon) $item.prepend('<span class="icon-' + opt.icon + '"></span>');
-    if (opt.type == 'top') {
-      $('.ui.menu .bottom').before($item);
-    } else {
-      $('.ui.menu .bottom').append($item);
-    }
   },
 
   addMenuFixedItem: function(opt) {
