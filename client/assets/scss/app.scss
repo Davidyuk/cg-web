@@ -16,7 +16,7 @@ $sidebar-width: 190px;
   background-color: #E7E7E6;
   width: $sidebar-width;
 
-  a.item {
+  .item {
     [class^="icon"] {
       filter: grayscale(1);
       display: inline-block;

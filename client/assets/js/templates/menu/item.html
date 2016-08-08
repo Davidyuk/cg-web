@@ -1,0 +1,15 @@
+<% if (here) { %>
+<span class="item <%= active ? 'active' : '' %>">
+  <% if (icon) { %>
+  <span class="icon-<%= icon %>"></span>
+  <% } %>
+  <%= title %>
+</span>
+<% } else { %>
+<a class="item <%= active ? 'active' : '' %>" href="<%= href %>">
+  <% if (icon) { %>
+  <span class="icon-<%= icon %>"></span>
+  <% } %>
+  <%= title %>
+</a>
+<% } %>
